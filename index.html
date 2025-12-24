@@ -143,6 +143,22 @@
                         }
                     });
                 }
+
+				    // Compute the base path dynamically
+				    let basePath = '/'; // default for root
+				    // For GitHub Pages, the repo name is the first path segment
+				    const pathParts = window.location.pathname.split('/');
+				    // If running from local /wb or GitHub Pages /repo-name
+				    if (pathParts.length > 1 && pathParts[1] !== '') {
+				      basePath = '/' + pathParts[1] + '/';
+				    }
+				 
+				    // Create base tag
+				    const base = document.createElement('base');
+				    base.href = basePath;
+				    document.head.appendChild(base);
+
+				
             </script>
                         <script src="assets/js/middle-section.js"></script>
 
